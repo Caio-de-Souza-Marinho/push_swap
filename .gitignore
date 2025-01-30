@@ -1,0 +1,8 @@
+*.o
+*.out
+*.swp
+*.a
+*.tests
+obj/
+checker
+push_swap
