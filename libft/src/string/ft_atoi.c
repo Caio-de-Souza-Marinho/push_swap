@@ -6,13 +6,11 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 20:48:52 by caide-so          #+#    #+#             */
-/*   Updated: 2024/12/26 01:31:25 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:06:01 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
-static int	ft_isspace(char c);
 
 int	ft_atoi(const char *nptr)
 {
@@ -38,11 +36,4 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result * sign);
-}
-
-static int	ft_isspace(char c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
 }
