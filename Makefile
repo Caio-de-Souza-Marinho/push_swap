@@ -10,7 +10,10 @@ INCLUDE		= -I .
 LIBFT_DIR	= libft/
 LIBFT_LIB	= ${LIBFT_DIR}libft.a
 
-SRCS		= ${SRC_DIR}main.c
+SRCS		= ${SRC_DIR}main.c \
+		  ${SRC_DIR}check_input.c \
+		  ${SRC_DIR}check_input_utils.c \
+		  ${SRC_DIR}free_utils.c \
 
 #SRCS_BONUS	= ${SRC_DIR}main.c
 
