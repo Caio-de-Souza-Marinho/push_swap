@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 01:16:55 by caide-so          #+#    #+#             */
-/*   Updated: 2025/01/01 20:49:15 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:34:07 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
  * @return int with the converted value.
 */
 int		ft_atoi(const char *nptr);
+
+/* @brief Converts the initial portion of the string pointed to by nptr to long.
+ *
+ * @param nptr a string to convert
+ * @return long with the converted value.
+*/
+long	ft_atol(const char *nptr);
 
 /* @brief Allocates with malloc and returns a string representing the integer 
  * received as an argument. Negative numbers must be handled.

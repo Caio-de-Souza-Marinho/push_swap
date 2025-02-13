@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 20:48:52 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/05 20:06:01 by caide-so         ###   ########.fr       */
+/*   Created: 2025/02/05 20:33:00 by caide-so          #+#    #+#             */
+/*   Updated: 2025/02/05 20:33:31 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int	result;
-	int	sign;
-	int	i;
+	long	result;
+	int		sign;
+	int		i;
 
 	result = 0;
 	sign = 1;

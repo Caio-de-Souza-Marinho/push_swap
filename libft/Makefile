@@ -22,6 +22,7 @@ SRCS		= ${BOOLEAN_DIR}/ft_isalnum.c \
 		  ${BOOLEAN_DIR}/ft_isascii.c \
 		  ${BOOLEAN_DIR}/ft_isdigit.c \
 		  ${BOOLEAN_DIR}/ft_isprint.c \
+		  ${BOOLEAN_DIR}/ft_isspace.c \
 		  ${IO_DIR}/ft_putchar_fd.c \
 		  ${IO_DIR}/ft_putendl_fd.c \
 		  ${IO_DIR}/ft_putnbr_fd.c \
@@ -43,6 +44,7 @@ SRCS		= ${BOOLEAN_DIR}/ft_isalnum.c \
 		  ${MEM_DIR}/ft_memmove.c \
 		  ${MEM_DIR}/ft_memset.c \
 		  ${STRING_DIR}/ft_atoi.c \
+		  ${STRING_DIR}/ft_atol.c \
 		  ${STRING_DIR}/ft_itoa.c \
 		  ${STRING_DIR}/ft_split.c \
 		  ${STRING_DIR}/ft_strchr.c \
