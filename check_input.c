@@ -20,7 +20,7 @@ char	*init_str(int argc, char **argv)
 {
 	char	*str;
 	char	*tmp_ptr;
-	int	i;
+	int		i;
 
 	i = 1;
 	str = ft_strdup("");
@@ -45,7 +45,7 @@ char	*init_str(int argc, char **argv)
 
 // split a string in other strings and checks if there's anything other than
 // a number or a sign and number
-long	*check_ints(char *str)
+long	*check_ints(char *str, int *count)
 {
 	char	**splited;
 	long	*pts;
@@ -54,9 +54,9 @@ long	*check_ints(char *str)
 
 	i = 0;
 	splited = ft_split(str, ' ');
-	if (splited == NULL)
-		exit(1);
 	free(str);
+	if (!splited)
+		return (NULL);
 	while (splited[i])
 	{
 		j = 0;
@@ -67,9 +67,9 @@ long	*check_ints(char *str)
 		}
 		i++;
 	}
+	*count = i;
 	pts = init_nbrs(splited, i);
-	if (pts == NULL)
-		exit(1);
+	free_split(splited);
 	return (pts);
 }
 
@@ -80,13 +80,10 @@ static void	check_char(char *arg, char **splited)
 
 	trigger = 0;
 	// Check if the character is not a digit, +, -, or space
-	if (!ft_isdigit(*arg) && *arg != '-' && *arg != '+' && *arg != ' ')
+	if (!ft_isdigit(*arg) && *arg != '-' && *arg != '+')
 		trigger = 1;
 	// Check for multiple signs or signs without digits
 	if ((*arg == '-' || *arg == '+') && !ft_isdigit(*(arg + 1)))
-		trigger = 1;
-	// Check for spaces in the middle of the number
-	if (*arg == ' ' && *(arg + 1) != '\0' && !ft_isdigit(*(arg + 1)))
 		trigger = 1;
 	// If an error is detected, clean and exit
 	if (trigger == 1)
@@ -103,26 +100,18 @@ static long	*init_nbrs(char **splited, int size)
 	long	i;
 
 	i = 0;
-	pts = (long *)malloc((size + 1) * sizeof(long));
+	pts = (long *)malloc(size * sizeof(long));
 	if (!pts)
-	{
-		free_split(splited);
-		exit(1);
-	}
-	while (splited[i])
+		return (NULL);
+	while (i < size)
 	{
 		if (!is_valid_number(splited[i]))
 		{
-			free_split(splited);
 			free(pts);
-			ft_printf("Error\n");
-			exit(1);
+			return (NULL);
 		}
-		pts[i] = ft_atoi(splited[i]);
-		free(splited[i]);
+		pts[i] = ft_atol(splited[i]);
 		i++;
 	}
-	pts[i] = '\0';
-	free(splited);
 	return (pts);
 }

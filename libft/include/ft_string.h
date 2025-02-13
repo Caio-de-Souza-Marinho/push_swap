@@ -22,12 +22,12 @@
 */
 int		ft_atoi(const char *nptr);
 
-/* @brief Converts the initial portion of the string pointed to by nptr to long. 
+/* @brief Converts the initial portion of the string pointed to by nptr to long.
  *
  * @param nptr a string to convert
  * @return long with the converted value.
 */
-long		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 
 /* @brief Allocates with malloc and returns a string representing the integer 
  * received as an argument. Negative numbers must be handled.
