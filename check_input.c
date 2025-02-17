@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-static void	check_char(char *arg, char **splited);
 static long	*init_nbrs(char **splited, int size);
 
 // transform the arguments in a string separated by a space
@@ -50,48 +49,17 @@ long	*check_ints(char *str, int *count)
 	char	**splited;
 	long	*pts;
 	int		i;
-	int		j;
 
 	i = 0;
 	splited = ft_split(str, ' ');
-	free(str);
 	if (!splited)
 		return (NULL);
 	while (splited[i])
-	{
-		j = 0;
-		while (splited[i][j])
-		{
-			check_char(&splited[i][j], splited);
-			j++;
-		}
 		i++;
-	}
 	*count = i;
 	pts = init_nbrs(splited, i);
 	free_split(splited);
 	return (pts);
-}
-
-// checks if there is anything other than a number or a sign and number
-static void	check_char(char *arg, char **splited)
-{
-	int		trigger;
-
-	trigger = 0;
-	// Check if the character is not a digit, +, -, or space
-	if (!ft_isdigit(*arg) && *arg != '-' && *arg != '+')
-		trigger = 1;
-	// Check for multiple signs or signs without digits
-	if ((*arg == '-' || *arg == '+') && !ft_isdigit(*(arg + 1)))
-		trigger = 1;
-	// If an error is detected, clean and exit
-	if (trigger == 1)
-	{
-		free_split(splited);
-		ft_printf("Error\n");
-		exit(1);
-	}
 }
 
 static long	*init_nbrs(char **splited, int size)

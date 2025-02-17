@@ -36,12 +36,13 @@ int	check_args(int argc, char **argv)
 	int		num_count;
 
 	str = init_str(argc, argv);
-	if (str == NULL)
+	if (!str)
 		return (0);
 	nbrs = check_ints(str, &num_count);
 	if (!nbrs)
 	{
 		free(str);
+		ft_printf("Error\n");
 		return (0);
 	}
 	if (!check_duplicate(nbrs, num_count) || !check_overflow(nbrs, num_count))
@@ -50,7 +51,7 @@ int	check_args(int argc, char **argv)
 		return (0);
 	}
 	print_nbrs(nbrs, num_count);
-	cleanup(NULL, nbrs);
+	cleanup(str, nbrs);
 	return (1);
 }
 
@@ -73,11 +74,3 @@ void	print_nbrs(long *nbrs, int count)
 		i++;
 	}
 }
-
-/*
-void	errors(int exit_code)
-{
-	ft_printf("Error\n");
-	exit(exit_code);
-}
-*/
