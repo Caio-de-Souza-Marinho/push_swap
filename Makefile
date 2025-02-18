@@ -14,6 +14,7 @@ SRCS		= ${SRC_DIR}main.c \
 		  ${SRC_DIR}check_input.c \
 		  ${SRC_DIR}check_input_utils.c \
 		  ${SRC_DIR}free_utils.c \
+		  ${SRC_DIR}init.c \
 
 #SRCS_BONUS	= ${SRC_DIR}main.c
 

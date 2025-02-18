@@ -52,6 +52,7 @@ long	*check_ints(char *str, int *count)
 
 	i = 0;
 	splited = ft_split(str, ' ');
+	free(str);
 	if (!splited)
 		return (NULL);
 	while (splited[i])
