@@ -29,38 +29,55 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-int	find_biggest_value_in_stack(t_stack *stack)
+t_stack	*find_biggest_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
-	int		biggest;
+	t_stack	*biggest;
 
 	if (!stack)
-		return (0);
+		return (NULL);
 	curr = stack;
-	biggest = curr->value;
+	biggest = curr;
 	while (curr)
 	{
-		if (curr->value > biggest)
-			biggest = curr->value;
+		if (curr->value > biggest->value)
+			biggest = curr;
 		curr = curr->next;
 	}
 	return (biggest);
 }
 
-int	find_smallest_value_in_stack(t_stack *stack)
+t_stack	*find_smallest_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
-	int		smallest;
+	t_stack	*smallest;
+
+	if (!stack)
+		return (NULL);
+	curr = stack;
+	smallest = curr;
+	while (curr)
+	{
+		if (curr->value < smallest->value)
+			smallest = curr;
+		curr = curr->next;
+	}
+	return (smallest);
+}
+
+int	stack_len(t_stack *stack)
+{
+	t_stack	*curr;
+	int		len;
 
 	if (!stack)
 		return (0);
 	curr = stack;
-	smallest = curr->value;
+	len = 0;
 	while (curr)
 	{
-		if (curr->value < smallest)
-			smallest = curr->value;
+		len++;
 		curr = curr->next;
 	}
-	return (smallest);
+	return (len);
 }

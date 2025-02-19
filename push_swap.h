@@ -19,8 +19,12 @@
 
 typedef struct s_stack
 {
-	long			value;
+	int				value;
 	int				index;
+	int				push_cost;
+	bool	above_median;
+	bool	cheapest;
+	struct s_stack	*targed;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -46,7 +50,8 @@ void	init_stack(t_stack **stack, long *nbrs, int count);
 void	print_stack(t_stack *stack);
 
 // stack utils
-int	find_biggest_value_in_stack(t_stack *stack);
-int	find_smallest_value_in_stack(t_stack *stack);
+t_stack	*find_biggest_node_in_stack(t_stack *stack);
+t_stack	*find_smallest_node_in_stack(t_stack *stack);
+int	stack_len(t_stack *stack);
 
 #endif

@@ -32,8 +32,6 @@ int	main(int argc, char **argv)
 	init_stack(&stack_a, nbrs, num_count);
 	free(nbrs);
 	print_stack(stack_a);
-	ft_printf("biggest value - %d\n", find_biggest_value_in_stack(stack_a));
-	ft_printf("smallest value - %d\n", find_smallest_value_in_stack(stack_a));
 	free_stack(&stack_a);
 	return (0);
 }
