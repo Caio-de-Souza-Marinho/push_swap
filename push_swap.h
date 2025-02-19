@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:03:18 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/17 20:29:10 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:57:44 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ void	print_stack(t_stack *stack);
 t_stack	*find_biggest_node_in_stack(t_stack *stack);
 t_stack	*find_smallest_node_in_stack(t_stack *stack);
 int	stack_len(t_stack *stack);
+
+// sort
+int	is_sorted(t_stack *stack);
 
 #endif
