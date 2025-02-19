@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:28:31 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/17 21:17:15 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,16 @@ t_stack *stack_last(t_stack *stack)
 void	free_stack(t_stack **stack)
 {
 	t_stack *curr;
+	t_stack *next_node;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
-	while (*stack)
+	curr = *stack;
+	while (curr)
 	{
-		curr = (*stack)->next;
-		free(*stack);
-		*stack = curr;
+		next_node = curr->next;
+		free(curr);
+		curr = next_node;
 	}
 	*stack = NULL;
 }

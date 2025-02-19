@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:02:55 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/17 20:29:12 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	main(int argc, char **argv)
 		return (1);
 	init_stack(&stack_a, nbrs, num_count);
 	free(nbrs);
+	print_stack(stack_a);
+	ft_printf("biggest value - %d\n", find_biggest_value_in_stack(stack_a));
+	ft_printf("smallest value - %d\n", find_smallest_value_in_stack(stack_a));
+	free_stack(&stack_a);
 	return (0);
 }
 
@@ -53,7 +57,7 @@ int	check_args(int argc, char **argv, long **nbrs_ptr, int *num_count)
 		cleanup(NULL, nbrs);
 		return (0);
 	}
-	print_nbrs(nbrs, *num_count);
+	//print_nbrs(nbrs, *num_count);
 	*nbrs_ptr = nbrs;
 	//cleanup(str, nbrs);
 	return (1);

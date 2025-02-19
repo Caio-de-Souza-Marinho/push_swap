@@ -34,11 +34,19 @@ int		check_overflow(long *nbrs, int count);
 
 // free
 void	free_split(char **split);
+void	free_stack(t_stack **stack);
 
 // errors
 void	errors(int exit_code);
 
 // init
 void	init_stack(t_stack **stack, long *nbrs, int count);
+
+// debug
+void	print_stack(t_stack *stack);
+
+// stack utils
+int	find_biggest_value_in_stack(t_stack *stack);
+int	find_smallest_value_in_stack(t_stack *stack);
 
 #endif
