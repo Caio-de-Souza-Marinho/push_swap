@@ -39,6 +39,7 @@ int		check_overflow(long *nbrs, int count);
 // free
 void	free_split(char **split);
 void	free_stack(t_stack **stack);
+void	cleanup(char *str, long *nbrs);
 
 // errors
 void	errors(int exit_code);

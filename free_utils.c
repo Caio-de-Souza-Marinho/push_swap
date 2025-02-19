@@ -25,3 +25,11 @@ void	free_split(char **split)
 	}
 	free(split);
 }
+
+void	cleanup(char *str, long *nbrs)
+{
+	if (str)
+		free(str);
+	if (nbrs)
+		free(nbrs);
+}
