@@ -16,6 +16,7 @@ SRCS		= ${SRC_DIR}main.c \
 		  ${SRC_DIR}free_utils.c \
 		  ${SRC_DIR}init_stack.c \
 		  ${SRC_DIR}init_stack_utils.c \
+		  ${SRC_DIR}sort_stack.c \
 
 #SRCS_BONUS	= ${SRC_DIR}main.c
 

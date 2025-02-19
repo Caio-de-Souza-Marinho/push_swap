@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_utils.c                                       :+:      :+:    :+:   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 22:07:23 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
+/*   Created: 2025/02/19 15:47:19 by caide-so          #+#    #+#             */
+/*   Updated: 2025/02/19 16:03:05 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// free a array of strings allocated with the ft_split function
-void	free_split(char **split)
+int	is_sorted(t_stack *stack)
 {
-	int	i;
+	t_stack	*curr;
 
-	i = 0;
-	while (split[i])
+	curr = stack;
+	while (curr->next)
 	{
-		free(split[i]);
-		i++;
+		if (curr->value > curr->next->value)
+			return (0);
+		curr = curr->next;
 	}
-	free(split);
-}
-
-void	cleanup(char *str, long *nbrs)
-{
-	if (str)
-		free(str);
-	if (nbrs)
-		free(nbrs);
+	return (1);
 }
