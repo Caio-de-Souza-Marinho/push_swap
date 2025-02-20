@@ -14,7 +14,6 @@
 
 t_stack	*stack_new(int value);
 void	stack_add_back(t_stack **stack, t_stack *node);
-t_stack *stack_last(t_stack *stack);
 void	free_stack(t_stack **stack);
 
 // Append each input number as a node to stack a.
@@ -62,12 +61,12 @@ void	stack_add_back(t_stack **stack, t_stack *new_node)
 		*stack = new_node;
 		return ;
 	}
-	last = stack_last(*stack);
+	last = find_last_node_in_stack(*stack);
 	last->next = new_node;
 	new_node->prev = last;
 }
 
-t_stack *stack_last(t_stack *stack)
+t_stack	*find_last_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
 
@@ -81,8 +80,8 @@ t_stack *stack_last(t_stack *stack)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *curr;
-	t_stack *next_node;
+	t_stack	*curr;
+	t_stack	*next_node;
 
 	if (!stack || !*stack)
 		return ;
