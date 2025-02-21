@@ -57,37 +57,6 @@ int	check_args(int argc, char **argv, long **nbrs_ptr, int *num_count)
 	return (1);
 }
 
-void	sort_stack(t_stack **stack_a)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	if (!is_sorted(*stack_a))
-	{
-		if (stack_len(*stack_a) == 2)
-			swap(stack_a, 1, "sa");
-		else if (stack_len(*stack_a) == 3)
-			three_sort(stack_a);
-		/*
-		else
-			turk(stack_a, &stack_b);
-		*/
-	}
-}
-
-void	three_sort(t_stack **stack)
-{
-	t_stack	*biggest;
-
-	biggest = find_biggest_node_in_stack(*stack);
-	if (*stack == biggest)
-		rotate(stack, 1, "ra");
-	else if ((*stack)->next == biggest)
-		reverse_rotate(stack, 1, "rra");
-	if ((*stack)->value > (*stack)->next->value)
-		swap(stack, 1, "sa");
-}
-
 /*
 void	print_nbrs(long *nbrs, int count)
 {

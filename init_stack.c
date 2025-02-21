@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:28:31 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/20 22:48:40 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ t_stack	*stack_new(int value)
 		return (NULL);
 	new_node->value = value;
 	new_node->index = 0;
+	new_node->push_cost = 0;
+	new_node->above_median = 0;
+	new_node->cheapest = 0;
+	new_node->target = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

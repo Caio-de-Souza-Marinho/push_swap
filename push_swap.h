@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:03:18 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/19 18:53:39 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/20 22:21:35 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 	int				push_cost;
 	int				above_median;
 	int				cheapest;
-	struct s_stack	*targed;
+	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -40,9 +40,6 @@ int		check_overflow(long *nbrs, int count);
 void	free_split(char **split);
 void	free_stack(t_stack **stack);
 void	cleanup(char *str, long *nbrs);
-
-// errors
-void	errors(int exit_code);
 
 // init
 void	init_stack(t_stack **stack, long *nbrs, int count);
@@ -60,10 +57,16 @@ int		stack_len(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	sort_stack(t_stack **stack_a);
 void	three_sort(t_stack **stack);
+void	turk(t_stack **stack_a, t_stack **stack_b);
+void	init_nodes_a(t_stack *stack_a, t_stack *stack_b);
+
+// sort utils
+void	current_index(t_stack *stack);
 
 // movements
 void	swap(t_stack **stack, int print, char *move);
 void	rotate(t_stack **stack, int print, char *move);
 void	reverse_rotate(t_stack **stack, int print, char *move);
+void	push(t_stack **src, t_stack **dest, int print, char *move);
 
 #endif
