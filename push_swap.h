@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:03:18 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/20 22:21:35 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/24 21:30:16 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,25 @@ void	sort_stack(t_stack **stack_a);
 void	three_sort(t_stack **stack);
 void	turk(t_stack **stack_a, t_stack **stack_b);
 void	init_nodes_a(t_stack *stack_a, t_stack *stack_b);
+void	init_nodes_b(t_stack *stack_a, t_stack *stack_b);
 
 // sort utils
 void	current_index(t_stack *stack);
+t_stack	*get_cheapest_node(t_stack *stack);
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
+void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
+void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
+void	min_on_top(t_stack **a);
 
 // movements
 void	swap(t_stack **stack, int print, char *move);
 void	rotate(t_stack **stack, int print, char *move);
 void	reverse_rotate(t_stack **stack, int print, char *move);
 void	push(t_stack **src, t_stack **dest, int print, char *move);
+void	swap_ab(t_stack **stack_a, t_stack **stack_b, int print);
+void	rotate_ab(t_stack **stack_a, t_stack **stack_b, int print);
+void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b, int print);
 
 #endif

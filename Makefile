@@ -19,7 +19,10 @@ SRCS		= ${SRC_DIR}main.c \
 		  ${SRC_DIR}sort_stack.c \
 		  ${SRC_DIR}sort_stack_utils.c \
 		  ${SRC_DIR}movements.c \
+		  ${SRC_DIR}ab_movements.c \
 		  ${SRC_DIR}a_to_b.c \
+		  ${SRC_DIR}rotate.c \
+		  ${SRC_DIR}b_to_a.c \
 
 #SRCS_BONUS	= ${SRC_DIR}main.c
 
