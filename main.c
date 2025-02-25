@@ -27,9 +27,7 @@ int	main(int argc, char **argv)
 		return (1);
 	init_stack(&stack_a, nbrs, num_count);
 	free(nbrs);
-	//print_stack(stack_a);
 	sort_stack(&stack_a);
-	//print_stack(stack_a);
 	free_stack(&stack_a);
 	return (0);
 }
@@ -56,17 +54,3 @@ int	check_args(int argc, char **argv, long **nbrs_ptr, int *num_count)
 	*nbrs_ptr = nbrs;
 	return (1);
 }
-
-/*
-void	print_nbrs(long *nbrs, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		ft_printf("numero %d - %d\n", i, nbrs[i]);
-		i++;
-	}
-}
-*/

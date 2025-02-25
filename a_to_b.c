@@ -27,7 +27,7 @@ void	init_nodes_a(t_stack *stack_a, t_stack *stack_b)
 
 void	set_target_a(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack *curr_b;
+	t_stack	*curr_b;
 	t_stack	*target_node;
 	long	best_match_index;
 
@@ -62,7 +62,7 @@ void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 	len_b = stack_len(stack_b);
 	while (stack_a)
 	{
-		stack_a->push_cost = stack_a->index;	
+		stack_a->push_cost = stack_a->index;
 		if (!(stack_a->above_median))
 			stack_a->push_cost = len_a - (stack_a->index);
 		if (stack_a->target->above_median)

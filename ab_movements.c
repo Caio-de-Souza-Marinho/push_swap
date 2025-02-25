@@ -16,7 +16,7 @@ void	swap_ab(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	swap(stack_a, 0, "");
 	swap(stack_b, 0, "");
-	if (print)	
+	if (print)
 		ft_printf("ss\n");
 }
 

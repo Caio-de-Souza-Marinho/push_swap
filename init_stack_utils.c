@@ -76,8 +76,8 @@ int	stack_len(t_stack *stack)
 	len = 0;
 	while (curr)
 	{
-		len++;
 		curr = curr->next;
+		len++;
 	}
 	return (len);
 }

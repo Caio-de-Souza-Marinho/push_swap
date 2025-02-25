@@ -34,6 +34,7 @@ void	init_stack(t_stack **stack, long *nbrs, int count)
 		stack_add_back(stack, new_node);
 		i++;
 	}
+	current_index(new_node);
 }
 
 t_stack	*stack_new(int value)

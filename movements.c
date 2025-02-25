@@ -88,7 +88,7 @@ void	push(t_stack **src, t_stack **dest, int print, char *move)
 	*dest = top_node;
 	top_node->prev = NULL;
 	if (ft_strncmp(move, "pa", 2) == 0 && print)
-		ft_printf("rra\n");
+		ft_printf("pa\n");
 	else if (ft_strncmp(move, "pb", 2) == 0 && print)
-		ft_printf("rrb\n");
+		ft_printf("pb\n");
 }
