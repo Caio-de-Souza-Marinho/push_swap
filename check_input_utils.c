@@ -53,18 +53,18 @@ int	check_overflow(long *nbrs, int count)
 	return (1);
 }
 
+// Allow leading + or -
+// If there are no digits after the sign, it's invalid
+// Check if the remainig characters are digits
 int	is_valid_number(char *str)
 {
 	int	i;
 
 	i = 0;
-	// Allow leading + or -
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	// If there are no digits after the sign, it's invalid
 	if (!str[i])
 		return (0);
-	// Check if the remainig characters are digits
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))

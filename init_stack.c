@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:28:31 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/20 22:48:40 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_stack	*stack_new(int value);
 void	stack_add_back(t_stack **stack, t_stack *node);
-t_stack *stack_last(t_stack *stack);
 void	free_stack(t_stack **stack);
 
 // Append each input number as a node to stack a.
@@ -35,6 +34,7 @@ void	init_stack(t_stack **stack, long *nbrs, int count)
 		stack_add_back(stack, new_node);
 		i++;
 	}
+	current_index(new_node);
 }
 
 t_stack	*stack_new(int value)
@@ -46,6 +46,10 @@ t_stack	*stack_new(int value)
 		return (NULL);
 	new_node->value = value;
 	new_node->index = 0;
+	new_node->push_cost = 0;
+	new_node->above_median = 0;
+	new_node->cheapest = 0;
+	new_node->target = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);
@@ -62,12 +66,12 @@ void	stack_add_back(t_stack **stack, t_stack *new_node)
 		*stack = new_node;
 		return ;
 	}
-	last = stack_last(*stack);
+	last = find_last_node_in_stack(*stack);
 	last->next = new_node;
 	new_node->prev = last;
 }
 
-t_stack *stack_last(t_stack *stack)
+t_stack	*find_last_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
 
@@ -81,8 +85,8 @@ t_stack *stack_last(t_stack *stack)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *curr;
-	t_stack *next_node;
+	t_stack	*curr;
+	t_stack	*next_node;
 
 	if (!stack || !*stack)
 		return ;

@@ -76,8 +76,16 @@ int	stack_len(t_stack *stack)
 	len = 0;
 	while (curr)
 	{
-		len++;
 		curr = curr->next;
+		len++;
 	}
 	return (len);
+}
+
+int	greater(int num1, int num2)
+{
+	if (num1 > num2)
+		return (num1);
+	else
+		return (num2);
 }

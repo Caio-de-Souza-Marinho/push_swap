@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_utils.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 22:07:23 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/18 19:23:57 by caide-so         ###   ########.fr       */
+/*   Created: 2025/02/24 20:02:07 by caide-so          #+#    #+#             */
+/*   Updated: 2025/02/24 20:22:49 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// free a array of strings allocated with the ft_split function
-void	free_split(char **split)
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target)
+		rotate_ab(a, b, 1);
+	current_index(*a);
+	current_index(*b);
 }
 
-void	cleanup(char *str, long *nbrs)
+void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	if (str)
-		free(str);
-	if (nbrs)
-		free(nbrs);
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target)
+		reverse_rotate_ab(a, b, 1);
+	current_index(*a);
+	current_index(*b);
 }
