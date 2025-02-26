@@ -14,7 +14,7 @@
 
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*b != cheapest_node->target && *a != cheapest_node)
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target)
 		rotate_ab(a, b, 1);
 	current_index(*a);
 	current_index(*b);
@@ -22,7 +22,7 @@ void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 
 void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*b != cheapest_node->target && *a != cheapest_node)
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target)
 		reverse_rotate_ab(a, b, 1);
 	current_index(*a);
 	current_index(*b);

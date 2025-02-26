@@ -59,14 +59,14 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target->above_median))
 		reverse_rotate_both(stack_a, stack_b, cheapest_node);
-	prep_for_push(stack_a, cheapest_node, "a");
-	prep_for_push(stack_b, cheapest_node->target, "b");
+	prep_for_push(stack_a, cheapest_node, 'a');
+	prep_for_push(stack_b, cheapest_node->target, 'b');
 	push(stack_a, stack_b, 1, "pb");
 }
 
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	prep_for_push(stack_a, (*stack_b)->target, "a");
+	prep_for_push(stack_a, (*stack_b)->target, 'a');
 	push(stack_b, stack_a, 1, "pa");
 }
 

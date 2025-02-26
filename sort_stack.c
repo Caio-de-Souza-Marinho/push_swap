@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/include/ft_string.h"
 #include "push_swap.h"
 
-void	prep_for_push(t_stack **stack, t_stack *top_node, char *stack_name);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 int		is_sorted(t_stack *stack);
 
 void	sort_stack(t_stack **stack_a)
@@ -83,26 +82,34 @@ void	turk(t_stack **stack_a, t_stack **stack_b)
 	min_on_top(stack_a);
 }
 
-void	prep_for_push(t_stack **stack, t_stack *top_node, char *stack_name)
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
-	int	len;
 	int	forward_moves;
 	int	reverse_moves;
 
-	len = stack_len(*stack);
 	forward_moves = top_node->index;
-	reverse_moves = len - top_node->index;
-
+	reverse_moves = stack_len(*stack) - top_node->index;
 	if (forward_moves <= reverse_moves)
 	{
 		while (*stack != top_node)
-			rotate(stack, 1, ft_strjoin("r", stack_name));
+		{
+			if (stack_name == 'a')
+				rotate(stack, 1, "ra");
+			else
+				rotate(stack, 1, "rb");
+		}
 	}
 	else
 	{
 		while (*stack != top_node)
-			reverse_rotate(stack, 1, ft_strjoin("rr", stack_name));
+		{
+			if (stack_name == 'a')
+				reverse_rotate(stack, 1, "rra");
+			else
+				reverse_rotate(stack, 1, "rrb");
+		}
 	}
+}
 
 	/*
 	while (*stack != top_node)
@@ -123,4 +130,3 @@ void	prep_for_push(t_stack **stack, t_stack *top_node, char *stack_name)
 		}
 	}
 	*/
-}

@@ -55,23 +55,52 @@ void	set_target_a(t_stack *stack_a, t_stack *stack_b)
 
 void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 {
+	t_stack	*curr;	
+
+	curr = stack_a;
+	while (curr)
+	{
+		if (curr->index <= ((stack_len(stack_a) - 1) / 2)
+			&& curr->target->index <= ((stack_len(stack_b) - 1) / 2))
+			curr->push_cost = greater(curr->index, curr->target->index);
+		else if (curr->index > (stack_len(stack_a) - 1) / 2
+			&& curr->target->index > (stack_len(stack_a) - 1) / 2)
+			curr->push_cost = greater((stack_len(stack_a) - curr->index),
+					stack_len(stack_b) - curr->target->index);
+		else if (curr->index <= (stack_len(stack_a) - 1) / 2
+			&& curr->target->index > (stack_len(stack_b) - 1) / 2)
+			curr->push_cost = curr->index + stack_len(stack_b)
+				- curr->target->index;
+		else
+			curr->push_cost = stack_len(stack_a)
+				- curr->index + curr->target->index;
+		curr = curr->next;
+	}
+}
+
+/*
+void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
+{
 	int	len_a;
 	int	len_b;
+	int	cost_a;
+	int	cost_b;
 
 	len_a = stack_len(stack_a);
 	len_b = stack_len(stack_b);
 	while (stack_a)
 	{
-		stack_a->push_cost = stack_a->index;
-		if (!(stack_a->above_median))
-			stack_a->push_cost = len_a - (stack_a->index);
-		if (stack_a->target->above_median)
-			stack_a->push_cost += stack_a->target->index;
-		else
-			stack_a->push_cost += len_b - (stack_a->target->index);
+		cost_a = stack_a->index;
+		if (!stack_a->above_median)
+			cost_a = len_a - stack_a->index;
+		cost_b = stack_a->target->index;
+		if (!stack_a->target->above_median)
+			cost_b = len_b - stack_a->target->index;
+		stack_a->push_cost = cost_a + cost_b;
 		stack_a = stack_a->next;
 	}
 }
+*/
 
 void	set_cheapest(t_stack *stack)
 {
