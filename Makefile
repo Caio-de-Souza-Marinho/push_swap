@@ -1,5 +1,5 @@
 NAME		= push_swap
-#NAME_BONUS	= checker
+NAME_BONUS	= checker
 CC		= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM		= rm -rf
@@ -24,18 +24,28 @@ SRCS		= ${SRC_DIR}main.c \
 		  ${SRC_DIR}rotate.c \
 		  ${SRC_DIR}b_to_a.c \
 
-#SRCS_BONUS	= ${SRC_DIR}main.c
+SRCS_BONUS	= ${SRC_DIR}1_main_bonus.c \
+		  ${SRC_DIR}1_check_input_bonus.c \
+		  ${SRC_DIR}1_check_input_utils_bonus.c \
+		  ${SRC_DIR}1_free_utils_bonus.c \
+		  ${SRC_DIR}1_init_stack_bonus.c \
+		  ${SRC_DIR}1_init_stack_utils_bonus.c \
+		  ${SRC_DIR}1_sort_stack_bonus.c \
+		  ${SRC_DIR}1_movements_bonus.c \
+		  ${SRC_DIR}1_ab_movements_bonus.c \
+		  ${SRC_DIR}1_checker_bonus.c \
+		  ${SRC_DIR}1_checker_utils_bonus.c \
 
 OBJS		= ${SRCS:${SRC_DIR}%.c=${OBJ_DIR}%.o}
-#OBJS_BONUS	= ${SRCS_BONUS:${SRC_DIR}%.c=${OBJ_DIR}%.o}
+OBJS_BONUS	= ${SRCS_BONUS:${SRC_DIR}%.c=${OBJ_DIR}%.o}
 
 all:		${OBJ_DIR} ${NAME}
 
 ${NAME}:	${OBJS} ${LIBFT_LIB}
 			${CC} ${CFLAGS} ${OBJS} ${LIBFT_LIB} ${INCLUDE} -o ${NAME}
 
-#bonus:		${OBJ_DIR} ${OBJS_BONUS} ${LIBFT_LIB}
-#${CC} ${CFLAGS} ${OBJS_BONUS} ${LIBFT_LIB} ${INCLUDE} -o ${NAME_BONUS}
+bonus:		${OBJ_DIR} ${OBJS_BONUS} ${LIBFT_LIB}
+			${CC} ${CFLAGS} ${OBJS_BONUS} ${LIBFT_LIB} ${INCLUDE} -o ${NAME_BONUS}
 
 ${OBJ_DIR}:	
 			@mkdir -p ${OBJ_DIR}
