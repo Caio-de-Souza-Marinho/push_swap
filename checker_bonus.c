@@ -31,15 +31,18 @@ void	process_input(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (is_sorted(*stack_a) == 1 && stack_len(*stack_b) == 0)
 			{
+				free_stacks(stack_a, stack_b);
 				free_and_print("OK\n", str);
 				exit (EXIT_SUCCESS);
 			}
+			free_stacks(stack_a, stack_b);
 			break ;
 		}
 		if (ft_strlen(str) > 0)
 			process_move(str, stack_a, stack_b);
 		free(str);
 	}
+	free_stacks(stack_a, stack_b);
 }
 
 // Handles individual move validation and excecution
@@ -58,6 +61,7 @@ void	process_move(char *str, t_stack **stack_a, t_stack **stack_b)
 	{
 		if (is_sorted(*stack_a) == 1 && stack_len(*stack_b) == 0)
 		{
+			free_stacks(stack_a, stack_b);
 			free_and_print("OK\n", str);
 			exit (EXIT_SUCCESS);
 		}
@@ -65,8 +69,9 @@ void	process_move(char *str, t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 	{
+		free_stacks(stack_a, stack_b);
 		free_and_print("Error\n", str);
-		exit (EXIT_SUCCESS);
+		exit (EXIT_FAILURE);
 	}
 }
 
