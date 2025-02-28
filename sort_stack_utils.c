@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+// Updates positional metadata for all nodes in the stack
+// 1. Assigns sequential index to each node
+// 2. Marks if the node is in top half of stack
 void	current_index(t_stack *stack)
 {
 	int	i;
@@ -33,6 +36,7 @@ void	current_index(t_stack *stack)
 	}
 }
 
+// Finds node marked as most cost-effective to move
 t_stack	*get_cheapest_node(t_stack *stack)
 {
 	t_stack	*curr;
@@ -49,6 +53,11 @@ t_stack	*get_cheapest_node(t_stack *stack)
 	return (NULL);
 }
 
+// Optimized movement of nodes from stack A to B
+// 1. Get cheapest node to move
+// 2. Rotate both stacks if efficient
+// 3. Prepare stacks for push_operation
+// 4. Execute push
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cheapest_node;
@@ -64,12 +73,18 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	push(stack_a, stack_b, 1, "pb");
 }
 
+// Moves nodes from stack B to A while maintaining order
+// 1. Prepare stack A for incoming node
+// 2. Push node to stack A
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	prep_for_push(stack_a, (*stack_b)->target, 'a');
 	push(stack_b, stack_a, 1, "pa");
 }
 
+// Rotates stack until smallest value is at the top
+// Uses rotate or reverse rotate based on the current position of the minimun
+// value
 void	min_on_top(t_stack **a)
 {
 	while ((*a)->value != find_smallest_node_in_stack(*a)->value)

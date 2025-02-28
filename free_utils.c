@@ -12,7 +12,11 @@
 
 #include "push_swap.h"
 
-// free a array of strings allocated with the ft_split function
+// Safely deallocates memory for a 2D string array created by ft_split
+// 1. Iterates through string array elements
+// 2. Frees each individual string
+// 3. Frees the array pointer itself
+// Note: Designed specifically for ft_split allocations
 void	free_split(char **split)
 {
 	int	i;
@@ -26,6 +30,7 @@ void	free_split(char **split)
 	free(split);
 }
 
+// Frees memory for input validation resources
 void	cleanup(char *str, long *nbrs)
 {
 	if (str)

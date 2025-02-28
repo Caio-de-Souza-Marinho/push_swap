@@ -12,23 +12,7 @@
 
 #include "checker.h"
 
-void	print_stack(t_stack *stack)
-{
-	t_stack	*curr;
-	int		i;
-
-	if (!stack)
-		return ;
-	i = 0;
-	curr = stack;
-	while (curr)
-	{
-		ft_printf("node %d value - %d\n", i, curr->value);
-		i++;
-		curr = curr->next;
-	}
-}
-
+// Finds the node containing the maximum value in the stack
 t_stack	*find_biggest_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
@@ -47,6 +31,7 @@ t_stack	*find_biggest_node_in_stack(t_stack *stack)
 	return (biggest);
 }
 
+// Finds the node containing the minimum value in the stack
 t_stack	*find_smallest_node_in_stack(t_stack *stack)
 {
 	t_stack	*curr;
@@ -65,6 +50,7 @@ t_stack	*find_smallest_node_in_stack(t_stack *stack)
 	return (smallest);
 }
 
+// Calculates the number of nodes in the stack
 int	stack_len(t_stack *stack)
 {
 	t_stack	*curr;
@@ -82,6 +68,7 @@ int	stack_len(t_stack *stack)
 	return (len);
 }
 
+// Returns the larger of two integers
 int	greater(int num1, int num2)
 {
 	if (num1 > num2)

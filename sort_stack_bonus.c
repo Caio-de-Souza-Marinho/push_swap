@@ -12,6 +12,7 @@
 
 #include "checker.h"
 
+// Checks if stack is sorted in ascending order
 int	is_sorted(t_stack *stack)
 {
 	t_stack	*curr;
@@ -26,6 +27,9 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
+// Updates positional metadata for all nodes in the stack
+// 1. Assigns sequential index to each node
+// 2. Marks if the node is in top half of stack
 void	current_index(t_stack *stack)
 {
 	int	i;

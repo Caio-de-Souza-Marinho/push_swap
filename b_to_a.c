@@ -14,6 +14,9 @@
 
 void	set_target_b(t_stack *stack_a, t_stack *stack_b);
 
+// Prepares stack B nodes for movement calculations
+// 1. Updates positional indexes in both stacks
+// 2. Establishes target nodes in stack_a for each stack_b element
 void	init_nodes_b(t_stack *stack_a, t_stack *stack_b)
 {
 	current_index(stack_b);
@@ -21,6 +24,10 @@ void	init_nodes_b(t_stack *stack_a, t_stack *stack_b)
 	set_target_b(stack_a, stack_b);
 }
 
+// Assigns target nodes in stack_a for each element in stack_b
+// For each stack_b node:
+// 1. Find the smallest value in stack_a that's larger then current stack_b
+// 2. If no larger value found, target smallest stack_a element
 void	set_target_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*curr_a;

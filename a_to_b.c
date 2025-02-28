@@ -16,6 +16,11 @@ void	set_target_a(t_stack *stack_a, t_stack *stack_b);
 void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b);
 void	set_cheapest(t_stack *stack);
 
+// Prepares stack A nodes for sorting calculations
+// 1. Refresh positional indexes in both stacks
+// 2. Find optimal targets in stack_b for stack_a nodes
+// 3. Calculate movement costs for each node
+// 4. Mark node with lowest cost as cheapest
 void	init_nodes_a(t_stack *stack_a, t_stack *stack_b)
 {
 	current_index(stack_a);
@@ -25,6 +30,10 @@ void	init_nodes_a(t_stack *stack_a, t_stack *stack_b)
 	set_cheapest(stack_a);
 }
 
+// Assigns target nodes in stack_b for each stack_a element
+// For each stack_a node:
+// 1. Find the largest value in stack_b that's smaller than current stack_a
+// 2. If no smaller value found, target the largest stack_b element
 void	set_target_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*curr_b;
@@ -53,6 +62,11 @@ void	set_target_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+// Calculates movement costs for transferring nodes from A to B
+// Cost calculation cases:
+// 1. Both nodes in the top half: cost = max(indexes)
+// 2. Both nodes in bottom half: cost = max(reverse indexes)
+// 3. Mixed positions: sum of individual costs
 void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*curr;	
@@ -78,30 +92,10 @@ void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-/*
-void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
-{
-	int	len_a;
-	int	len_b;
-	int	cost_a;
-	int	cost_b;
-
-	len_a = stack_len(stack_a);
-	len_b = stack_len(stack_b);
-	while (stack_a)
-	{
-		cost_a = stack_a->index;
-		if (!stack_a->above_median)
-			cost_a = len_a - stack_a->index;
-		cost_b = stack_a->target->index;
-		if (!stack_a->target->above_median)
-			cost_b = len_b - stack_a->target->index;
-		stack_a->push_cost = cost_a + cost_b;
-		stack_a = stack_a->next;
-	}
-}
-*/
-
+// Marks node with lowest push cost as cheapest move
+// 1. Iterates through all nodes
+// 2. Tracks lowest cost encountered
+// 3. Flags cheapest node for priority movement
 void	set_cheapest(t_stack *stack)
 {
 	long	cheapest_value;

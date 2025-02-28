@@ -14,7 +14,7 @@
 
 static long	*init_nbrs(char **splited, int size);
 
-// transform the arguments in a string separated by a space
+// Concatenates command-line arguments into a single space-separeted-string
 char	*init_str(int argc, char **argv)
 {
 	char	*str;
@@ -42,8 +42,7 @@ char	*init_str(int argc, char **argv)
 	return (str);
 }
 
-// split a string in other strings and checks if there's anything other than
-// a number or a sign and number
+// Splits a space-separeted string into individual numbers and validates them
 long	*check_ints(char *str, int *count)
 {
 	char	**splited;
@@ -63,6 +62,7 @@ long	*check_ints(char *str, int *count)
 	return (pts);
 }
 
+// Converts an array of strings into an array of long integers
 static long	*init_nbrs(char **splited, int size)
 {
 	long	*pts;

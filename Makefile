@@ -24,17 +24,17 @@ SRCS		= ${SRC_DIR}main.c \
 		  ${SRC_DIR}rotate.c \
 		  ${SRC_DIR}b_to_a.c \
 
-SRCS_BONUS	= ${SRC_DIR}1_main_bonus.c \
-		  ${SRC_DIR}1_check_input_bonus.c \
-		  ${SRC_DIR}1_check_input_utils_bonus.c \
-		  ${SRC_DIR}1_free_utils_bonus.c \
-		  ${SRC_DIR}1_init_stack_bonus.c \
-		  ${SRC_DIR}1_init_stack_utils_bonus.c \
-		  ${SRC_DIR}1_sort_stack_bonus.c \
-		  ${SRC_DIR}1_movements_bonus.c \
-		  ${SRC_DIR}1_ab_movements_bonus.c \
-		  ${SRC_DIR}1_checker_bonus.c \
-		  ${SRC_DIR}1_checker_utils_bonus.c \
+SRCS_BONUS	= ${SRC_DIR}main_bonus.c \
+		  ${SRC_DIR}check_input_bonus.c \
+		  ${SRC_DIR}check_input_utils_bonus.c \
+		  ${SRC_DIR}free_utils_bonus.c \
+		  ${SRC_DIR}init_stack_bonus.c \
+		  ${SRC_DIR}init_stack_utils_bonus.c \
+		  ${SRC_DIR}sort_stack_bonus.c \
+		  ${SRC_DIR}movements_bonus.c \
+		  ${SRC_DIR}ab_movements_bonus.c \
+		  ${SRC_DIR}checker_bonus.c \
+		  ${SRC_DIR}checker_utils_bonus.c \
 
 OBJS		= ${SRCS:${SRC_DIR}%.c=${OBJ_DIR}%.o}
 OBJS_BONUS	= ${SRCS_BONUS:${SRC_DIR}%.c=${OBJ_DIR}%.o}

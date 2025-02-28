@@ -35,6 +35,10 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+// Concatenate arguments into a single string
+// Split and validate individual numbers
+// Check for duplicates
+// Verify integer overflow
 int	check_args(int argc, char **argv, long **nbrs_ptr, int *num_count)
 {
 	char	*str;

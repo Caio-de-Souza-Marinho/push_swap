@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-// check for duplicate values and exits if found.
+// Check for duplicate values, returns 0 and pring error if found, 1 if don't
 int	check_duplicate(long *nbrs, int count)
 {
 	int	i;
@@ -36,6 +36,7 @@ int	check_duplicate(long *nbrs, int count)
 	return (1);
 }
 
+// Check for integer overflow, returns 0 and print error if found, 1 if don't
 int	check_overflow(long *nbrs, int count)
 {
 	int	i;

@@ -12,12 +12,16 @@
 
 #include "checker.h"
 
+// Cleans memory and status message output
 void	free_and_print(char *msg, char *str)
 {
 	free(str);
 	ft_printf(msg);
 }
 
+// Validate if a string represents a legitimate push_swap operation
+// Valid operations:
+// sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
 int	check_move(char *str)
 {
 	if (ft_strcmp(str, "sa") == 0)

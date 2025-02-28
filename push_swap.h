@@ -53,9 +53,6 @@ t_stack	*find_last_node_in_stack(t_stack *stack);
 int		stack_len(t_stack *stack);
 int		greater(int num1, int num2);
 
-// debug
-void	print_stack(t_stack *stack);
-
 // sort
 int		is_sorted(t_stack *stack);
 void	sort_stack(t_stack **stack_a);

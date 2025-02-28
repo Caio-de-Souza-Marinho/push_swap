@@ -12,6 +12,10 @@
 
 #include "checker.h"
 
+// Swaps the first two elements of a stack
+// 1. Validates that the stack has at least 2 elements
+// 2. Swaps first and second node positions
+// 3. Maintains doubly-linked list integrity
 void	swap(t_stack **stack, int print, char *move)
 {
 	t_stack	*first;
@@ -34,6 +38,10 @@ void	swap(t_stack **stack, int print, char *move)
 		ft_printf("sb\n");
 }
 
+// Shifts the stack upward - first element becomes the last
+// 1. Validates stack has rotatable elements
+// 2. Makes first node the new last node
+// 3. Updates stack head to second node
 void	rotate(t_stack **stack, int print, char *move)
 {
 	t_stack	*first;
@@ -54,6 +62,10 @@ void	rotate(t_stack **stack, int print, char *move)
 		ft_printf("rb\n");
 }
 
+// Shifts the stack downward - last element becomes the first
+// 1. Validates stack has rotatable elements
+// 2. Makes last node the new first node
+// 3. Updates stack head and links
 void	reverse_rotate(t_stack **stack, int print, char *move)
 {
 	t_stack	*last;
@@ -72,6 +84,11 @@ void	reverse_rotate(t_stack **stack, int print, char *move)
 		ft_printf("rrb\n");
 }
 
+// Moves top element from source stack to destination stack
+// 1. Validates that the source stack has elements
+// 2. Removes the top node from source
+// 3. Adds the node to the top of destination
+// 4. Maintains link integrity in both stacks
 void	push(t_stack **src, t_stack **dest, int print, char *move)
 {
 	t_stack	*top_node;

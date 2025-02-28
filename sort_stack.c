@@ -15,6 +15,11 @@
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 int		is_sorted(t_stack *stack);
 
+// Main sorting controller that selects best algorithm based on stack size
+// 1. Checks if stack is already sorted
+// 2. Handles 2-element stack with a single swap
+// 3. Handels 3-element stack with dedicated sort
+// 4. Uses Turk algorithm for larger stacks
 void	sort_stack(t_stack **stack_a)
 {
 	t_stack	*stack_b;
@@ -31,6 +36,7 @@ void	sort_stack(t_stack **stack_a)
 	}
 }
 
+// Checks if stack is sorted in ascending order
 int	is_sorted(t_stack *stack)
 {
 	t_stack	*curr;
@@ -45,6 +51,10 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
+// Specialized sorting algorithm for 3-element stacks
+// 1. Identify largest element
+// 2. Position largest element at the bottom of the stack
+// 3. Final swap if needed
 void	three_sort(t_stack **stack)
 {
 	t_stack	*biggest;
@@ -58,6 +68,11 @@ void	three_sort(t_stack **stack)
 		swap(stack, 1, "sa");
 }
 
+// Turk algorithm
+// 1. Push elements to stack_b until 3 remain in stack_a
+// 2. Sort remaining 3 elements in stack_a
+// 3. Return elements from stack_b while maintaining order
+// 4. Final position adjustment
 void	turk(t_stack **stack_a, t_stack **stack_b)
 {
 	int	len_a;
@@ -82,6 +97,8 @@ void	turk(t_stack **stack_a, t_stack **stack_b)
 	min_on_top(stack_a);
 }
 
+// Optimally rotates the stack to position target node at the top
+// Uses either rotate or reverse rotate based on shortest path
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
 	int	forward_moves;
@@ -110,23 +127,3 @@ void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 		}
 	}
 }
-
-	/*
-	while (*stack != top_node)
-	{
-		if (stack_name == 'a')
-		{
-			if (top_node->above_median)
-				rotate(stack, 1, "ra");
-			else
-				reverse_rotate(stack, 1, "rra");
-		}
-		else if (stack_name == 'b')
-		{
-			if (top_node->above_median)
-				rotate(stack, 1, "rb");
-			else
-				reverse_rotate(stack, 1, "rrb");
-		}
-	}
-	*/

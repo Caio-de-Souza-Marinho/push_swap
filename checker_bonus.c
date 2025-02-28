@@ -16,6 +16,10 @@ void	process_move(char *str, t_stack **stack_a, t_stack **stack_b);
 int		check_move(char *str);
 void	apply_move(char *str, t_stack **stack_a, t_stack **stack_b);
 
+// Main loop for processing moves from standard input
+// 1. Continuously reads input until EOF
+// 2. Validates and applies each move
+// 3. Checks final stack state after EOF
 void	process_input(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*str;
@@ -38,6 +42,11 @@ void	process_input(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+// Handles individual move validation and excecution
+// 1. Sanitizes input by removing newline
+// 2. Validates move syntax
+// 3. Applies move if valid
+// 4. Handles early success condition
 void	process_move(char *str, t_stack **stack_a, t_stack **stack_b)
 {
 	size_t	len;
@@ -61,6 +70,7 @@ void	process_move(char *str, t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+// Dispatches move operations to appropriate stack functions
 void	apply_move(char *str, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strcmp(str, "sa") == 0)
