@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 01:16:55 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/05 20:34:07 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:38:16 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * found, respectively, to be less than, to match, or be greater than 's2'.
 */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /* @brief Locates the first occurrence of the null-terminated string little in 
  * the string big, where not more than len characters are searched. Characters 

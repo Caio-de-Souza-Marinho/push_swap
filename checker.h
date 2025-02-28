@@ -6,7 +6,7 @@
 /*   By: caide-so <caide-so@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:44:06 by caide-so          #+#    #+#             */
-/*   Updated: 2025/02/26 22:19:29 by caide-so         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:39:07 by caide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b, int print);
 void	process_input(t_stack **stack_a, t_stack **stack_b);
 
 // chekcer utils
-void	exit_ok(char *msg, char *str);
+void	free_and_print(char *msg, char *str);
+int		check_move(char *str);
+
 #endif
