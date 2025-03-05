@@ -78,7 +78,7 @@ void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 			&& curr->target->index <= ((stack_len(stack_b) - 1) / 2))
 			curr->push_cost = greater(curr->index, curr->target->index);
 		else if (curr->index > (stack_len(stack_a) - 1) / 2
-			&& curr->target->index > (stack_len(stack_a) - 1) / 2)
+			&& curr->target->index > (stack_len(stack_b) - 1) / 2)
 			curr->push_cost = greater((stack_len(stack_a) - curr->index),
 					stack_len(stack_b) - curr->target->index);
 		else if (curr->index <= (stack_len(stack_a) - 1) / 2
